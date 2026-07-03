@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>対戦ログ ― カードファイト!! ヴァンガード 成績ノート</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="対戦ログ">
+<meta name="theme-color" content="#10111a">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #10111a;
+    --panel: #191b27;
+    --panel-raised: #212436;
+    --line: #2c2f45;
+    --gold: #d9a552;
+    --gold-dim: #8a7038;
+    --win: #4fae83;
+    --loss: #d1596a;
+    --draw: #8b8fa3;
+    --text: #ece8db;
+    --text-dim: #8b8fa8;
+    --radius: 10px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 600px at 15% -10%, rgba(217,165,82,0.08), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    min-height:100vh;
+    padding:calc(24px + env(safe-area-inset-top)) 16px calc(60px + env(safe-area-inset-bottom));
+  }
+  .wrap{max-width:880px;margin:0 auto;}
+
+  /* header */
+  header{display:flex;align-items:center;gap:14px;margin-bottom:22px;}
+  .crest{
+    width:44px;height:44px;flex:none;border-radius:8px;
+    background:linear-gradient(155deg, var(--gold) 0%, #6b4f22 100%);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Rajdhani',sans-serif;font-weight:700;color:#191b27;font-size:20px;
+    box-shadow:0 2px 10px rgba(217,165,82,0.25);
+  }
+  h1{
+    font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:.03em;
+    font-size:22px;margin:0;color:var(--text);
+  }
+  header p{margin:2px 0 0;font-size:12px;color:var(--text-dim);letter-spacing:.02em;}
+
+  /* nav */
+  nav.tabs{display:flex;gap:6px;margin-bottom:18px;background:var(--panel);padding:4px;border-radius:12px;border:1px solid var(--line);}
+  nav.tabs button{
+    flex:1;padding:10px 8px;border:none;border-radius:9px;background:transparent;color:var(--text-dim);
+    font-family:'Rajdhani',sans-serif;font-weight:600;font-size:14px;letter-spacing:.04em;cursor:pointer;
+    transition:background .15s,color .15s;
+  }
+  nav.tabs button.active{background:var(--gold);color:#191b27;}
+  nav.tabs button:not(.active):hover{color:var(--text);}
+
+  section{display:none;}
+  section.active{display:block;animation:fade .2s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(2px);}to{opacity:1;transform:none;}}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:14px;}
+
+  /* form */
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;}
+  .field{display:flex;flex-direction:column;gap:4px;}
+  .field.full{grid-column:1/-1;}
+  label{font-size:11px;color:var(--text-dim);letter-spacing:.03em;}
+  select, input[type=date], input[type=number], textarea{
+    background:var(--panel-raised);border:1px solid var(--line);color:var(--text);
+    border-radius:7px;padding:9px 10px;font-size:14px;font-family:inherit;width:100%;
+  }
+  select:focus, input:focus, textarea:focus{outline:2px solid var(--gold-dim);outline-offset:1px;}
+  .combo-add{display:flex;gap:6px;margin-top:5px;}
+  .combo-add input{flex:1;}
+  .combo-add button{
+    background:var(--panel-raised);border:1px solid var(--line);color:var(--gold);
+    border-radius:7px;padding:0 12px;font-size:13px;cursor:pointer;white-space:nowrap;
+  }
+  .combo-add button:hover{border-color:var(--gold-dim);}
+  .btn-row{display:flex;gap:8px;}
+  .btn-row button{
+    flex:1;padding:9px 6px;border-radius:7px;border:1px solid var(--line);background:var(--panel-raised);
+    color:var(--text-dim);font-family:'Rajdhani',sans-serif;font-weight:600;font-size:14px;cursor:pointer;
+    transition:all .12s;
+  }
+  .btn-row button.sel-win.active{background:rgba(79,174,131,0.18);border-color:var(--win);color:var(--win);}
+  .btn-row button.sel-loss.active{background:rgba(209,89,106,0.18);border-color:var(--loss);color:var(--loss);}
+  .btn-row button.sel-draw.active{background:rgba(139,143,163,0.2);border-color:var(--draw);color:var(--text);}
+  .btn-row button.sel-order.active{background:rgba(217,165,82,0.16);border-color:var(--gold);color:var(--gold);}
+
+  details{background:var(--panel-raised);border:1px solid var(--line);border-radius:7px;padding:8px 10px;}
+  details summary{cursor:pointer;font-size:12px;color:var(--text-dim);list-style:none;}
+  details summary::-webkit-details-marker{display:none;}
+  details summary:before{content:"詳細メモを追加 ▸ ";}
+  details[open] summary:before{content:"詳細メモ ▾ ";}
+  details textarea{margin-top:8px;min-height:60px;resize:vertical;}
+
+  .submit-btn{
+    width:100%;margin-top:14px;padding:12px;border:none;border-radius:8px;
+    background:linear-gradient(180deg, var(--gold), #b98938);color:#191b27;
+    font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;letter-spacing:.04em;cursor:pointer;
+  }
+  .submit-btn:hover{filter:brightness(1.06);}
+  .submit-btn:disabled{opacity:.5;cursor:default;}
+
+  .hint{font-size:11px;color:var(--text-dim);margin:-2px 0 12px;line-height:1.5;}
+  .deck-manage-list{display:flex;flex-direction:column;gap:6px;}
+  .dm-row{display:flex;align-items:center;gap:8px;background:var(--panel-raised);border:1px solid var(--line);border-radius:7px;padding:8px 10px;font-size:13px;}
+  .dm-name{flex:1;color:var(--text);}
+  .dm-del{background:transparent;border:none;color:var(--text-dim);cursor:pointer;font-size:15px;line-height:1;padding:3px 7px;border-radius:5px;}
+  .dm-del:hover{color:var(--loss);background:rgba(209,89,106,0.12);}
+  .dm-confirm{display:flex;align-items:center;gap:8px;width:100%;}
+  .dm-confirm span{flex:1;color:var(--loss);font-size:12px;}
+  .dm-confirm button{border:none;border-radius:6px;padding:6px 11px;font-size:12px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-weight:600;}
+  .dm-confirm .yes-btn{background:var(--loss);color:#fff;}
+  .dm-confirm .no-btn{background:var(--panel);color:var(--text-dim);border:1px solid var(--line);}
+  .dm-empty{color:var(--text-dim);font-size:12px;padding:4px 2px;}
+
+  .hist-del-btn{
+    margin-top:8px;background:transparent;border:1px solid var(--line);color:var(--loss);
+    border-radius:6px;padding:5px 10px;font-size:11px;cursor:pointer;
+  }
+  .hist-del-btn:hover{background:rgba(209,89,106,0.12);border-color:var(--loss);}
+  .hist-del-confirm{display:flex;align-items:center;gap:8px;margin-top:8px;}
+  .hist-del-confirm span{color:var(--loss);font-size:12px;}
+  .hist-del-confirm button{border:none;border-radius:6px;padding:5px 10px;font-size:11px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-weight:600;}
+  .hist-del-confirm .yes-btn{background:var(--loss);color:#fff;}
+  .hist-del-confirm .no-btn{background:var(--panel);color:var(--text-dim);border:1px solid var(--line);}
+
+  .toast{
+    position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+    background:var(--panel-raised);border:1px solid var(--gold-dim);color:var(--gold);
+    padding:9px 18px;border-radius:20px;font-size:13px;opacity:0;pointer-events:none;transition:opacity .25s;
+  }
+  .toast.show{opacity:1;}
+
+  /* deck chips */
+  .chip-row{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px;}
+  .chip{
+    flex:none;padding:7px 13px;border-radius:20px;border:1px solid var(--line);background:var(--panel);
+    color:var(--text-dim);font-size:13px;cursor:pointer;white-space:nowrap;
+  }
+  .chip.active{background:var(--gold);color:#191b27;border-color:var(--gold);font-weight:600;}
+
+  .filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center;}
+  .seg{display:flex;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+  .seg button{border:none;background:transparent;color:var(--text-dim);padding:7px 12px;font-size:12px;cursor:pointer;}
+  .seg button.active{background:var(--gold-dim);color:#fff;}
+  .filter-row select{width:auto;padding:7px 10px;font-size:12px;}
+
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px;}
+  .stat-box{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px 10px;text-align:center;}
+  .stat-box .v{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--gold);}
+  .stat-box .l{font-size:10px;color:var(--text-dim);margin-top:2px;letter-spacing:.03em;}
+
+  h3.sec-title{font-size:13px;color:var(--text-dim);letter-spacing:.05em;margin:0 0 10px;font-weight:500;}
+
+  table.xtab{width:100%;border-collapse:collapse;font-size:12px;}
+  table.xtab th,table.xtab td{padding:7px 8px;text-align:center;border-bottom:1px solid var(--line);}
+  table.xtab th{color:var(--text-dim);font-weight:500;text-align:left;}
+  table.xtab td.name{text-align:left;color:var(--text);}
+  table.xtab td.rate{font-family:'Rajdhani',sans-serif;font-weight:600;}
+  .rate.high{color:var(--win);}
+  .rate.low{color:var(--loss);}
+  .n-small{color:var(--text-dim);font-size:10px;}
+
+  .turn-chart{display:flex;align-items:flex-end;gap:6px;height:100px;padding-top:10px;}
+  .turn-bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;}
+  .turn-bar{width:100%;background:linear-gradient(180deg,var(--gold),var(--gold-dim));border-radius:3px 3px 0 0;min-height:2px;}
+  .turn-bar-col .cnt{font-size:10px;color:var(--text-dim);}
+  .turn-bar-col .lbl{font-size:10px;color:var(--text-dim);margin-top:2px;}
+
+  .streak-row{display:flex;gap:3px;flex-wrap:wrap;}
+  .streak-dot{width:16px;height:16px;border-radius:4px;}
+  .streak-dot.W{background:var(--win);}
+  .streak-dot.L{background:var(--loss);}
+  .streak-dot.D{background:var(--draw);}
+
+  .opp-list{display:flex;flex-direction:column;gap:8px;}
+  .opp-row{display:flex;align-items:center;gap:10px;font-size:13px;}
+  .opp-row .oname{flex:1;color:var(--text);}
+  .opp-row .obar{flex:2;height:8px;background:var(--panel-raised);border-radius:4px;overflow:hidden;}
+  .opp-row .ofill{height:100%;background:var(--gold);}
+  .opp-row .orate{width:70px;text-align:right;font-family:'Rajdhani',sans-serif;font-weight:600;color:var(--gold);font-size:13px;}
+
+  .csv-btn{
+    background:var(--panel-raised);border:1px solid var(--line);color:var(--text-dim);
+    padding:9px 14px;border-radius:7px;font-size:12px;cursor:pointer;
+  }
+  .csv-btn:hover{border-color:var(--gold-dim);color:var(--gold);}
+
+  /* history */
+  .hist-row{
+    display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);
+    cursor:pointer;font-size:13px;
+  }
+  .hist-row:last-child{border-bottom:none;}
+  .hist-row .res-badge{
+    width:34px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;
+    font-size:11px;font-weight:700;font-family:'Rajdhani',sans-serif;flex:none;
+  }
+  .res-badge.W{background:rgba(79,174,131,0.18);color:var(--win);}
+  .res-badge.L{background:rgba(209,89,106,0.18);color:var(--loss);}
+  .res-badge.D{background:rgba(139,143,163,0.2);color:var(--text-dim);}
+  .hist-row .match-title{flex:1;color:var(--text);}
+  .hist-row .match-title .vs{color:var(--text-dim);font-size:11px;}
+  .hist-row .meta{color:var(--text-dim);font-size:11px;text-align:right;flex:none;}
+  .hist-detail{padding:0 12px 12px 56px;font-size:12px;color:var(--text-dim);display:none;}
+  .hist-detail.open{display:block;}
+
+  .empty{color:var(--text-dim);font-size:13px;text-align:center;padding:30px 10px;}
+
+  @media (max-width:520px){
+    .form-grid{grid-template-columns:1fr;}
+    .stat-grid{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="crest">VG</div>
+    <div>
+      <h1>対戦ログ</h1>
+      <p>カードファイト!! ヴァンガード 成績ノート</p>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button data-tab="input" class="active">入力</button>
+    <button data-tab="stats">集計</button>
+    <button data-tab="history">履歴</button>
+  </nav>
+
+  <!-- ===== INPUT TAB ===== -->
+  <section id="tab-input" class="active">
+    <div class="card">
+      <div class="form-grid">
+        <div class="field">
+          <label>使用デッキ</label>
+          <select id="f-deck"></select>
+          <div class="combo-add" id="add-deck-row" style="display:none;">
+            <input type="text" id="add-deck-input" placeholder="新しいデッキ名">
+            <button type="button" id="add-deck-confirm">追加</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>対戦相手のデッキ</label>
+          <select id="f-opp"></select>
+          <div class="combo-add" id="add-opp-row" style="display:none;">
+            <input type="text" id="add-opp-input" placeholder="新しいデッキ名">
+            <button type="button" id="add-opp-confirm">追加</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>フォーマット</label>
+          <select id="f-format"></select>
+          <div class="combo-add" id="add-format-row" style="display:none;">
+            <input type="text" id="add-format-input" placeholder="新しいフォーマット名">
+            <button type="button" id="add-format-confirm">追加</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>対戦日</label>
+          <input type="date" id="f-date">
+        </div>
+
+        <div class="field">
+          <label>勝敗</label>
+          <div class="btn-row">
+            <button type="button" class="sel-win" data-result="W">勝ち</button>
+            <button type="button" class="sel-loss" data-result="L">負け</button>
+            <button type="button" class="sel-draw" data-result="D">引き分け</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>先攻 / 後攻</label>
+          <div class="btn-row">
+            <button type="button" class="sel-order" data-order="先攻">先攻</button>
+            <button type="button" class="sel-order" data-order="後攻">後攻</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>勝敗の理由</label>
+          <select id="f-reason">
+            <option value="ダメージ6点">ダメージ6点</option>
+            <option value="デッキ切れ">デッキ切れ</option>
+            <option value="時間切れ">時間切れ</option>
+            <option value="投了">投了</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>経過ターン数</label>
+          <input type="number" id="f-turns" min="1" max="30" placeholder="例: 6">
+        </div>
+
+        <div class="field full">
+          <details>
+            <summary></summary>
+            <textarea id="f-notes" placeholder="展開のメモ、ライドラインの噛み合いなど"></textarea>
+          </details>
+        </div>
+      </div>
+      <button class="submit-btn" id="submit-btn">この対戦を記録する</button>
+    </div>
+
+    <div class="card" id="deck-manage-card">
+      <h3 class="sec-title">登録済みデッキの管理</h3>
+      <p class="hint">使用デッキ・対戦相手デッキの選択欄は同じ一覧を共有しています。削除すると次回以降の選択肢から消えます(すでに記録した対戦ログはそのまま残ります)。</p>
+      <div id="deck-manage-list" class="deck-manage-list"></div>
+    </div>
+  </section>
+
+  <!-- ===== STATS TAB ===== -->
+  <section id="tab-stats">
+    <div class="chip-row" id="deck-chips"></div>
+    <div class="filter-row">
+      <div class="seg" id="period-seg">
+        <button data-period="all" class="active">全期間</button>
+        <button data-period="month">1ヶ月</button>
+        <button data-period="week">1週間</button>
+      </div>
+      <select id="format-filter"><option value="all">すべてのフォーマット</option></select>
+    </div>
+
+    <div id="stats-empty" class="card empty" style="display:none;">まだこのデッキの対戦記録がありません。「入力」タブから記録してみましょう。</div>
+
+    <div id="stats-body">
+      <div class="stat-grid">
+        <div class="stat-box"><div class="v" id="st-count">0</div><div class="l">試合数</div></div>
+        <div class="stat-box"><div class="v" id="st-rate">-</div><div class="l">総合勝率</div></div>
+        <div class="stat-box"><div class="v" id="st-first">-</div><div class="l">先攻勝率</div></div>
+        <div class="stat-box"><div class="v" id="st-second">-</div><div class="l">後攻勝率</div></div>
+      </div>
+
+      <div class="card">
+        <h3 class="sec-title">先攻・後攻 × 対戦相手デッキ</h3>
+        <table class="xtab" id="xtab-table">
+          <thead><tr><th>相手デッキ</th><th>先攻</th><th>後攻</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3 class="sec-title">決着ターン数の分布</h3>
+        <div class="turn-chart" id="turn-chart"></div>
+      </div>
+
+      <div class="card">
+        <h3 class="sec-title">直近の勝敗推移（古い→新しい）</h3>
+        <div class="streak-row" id="streak-row"></div>
+      </div>
+
+      <div class="card">
+        <h3 class="sec-title">対戦相手デッキ別 戦績</h3>
+        <div class="opp-list" id="opp-list"></div>
+      </div>
+
+      <button class="csv-btn" id="csv-btn">CSVでエクスポート</button>
+    </div>
+  </section>
+
+  <!-- ===== HISTORY TAB ===== -->
+  <section id="tab-history">
+    <div class="filter-row">
+      <select id="hist-deck-filter"><option value="all">すべてのデッキ</option></select>
+    </div>
+    <div class="card" style="padding:0;">
+      <div id="hist-list"></div>
+      <div id="hist-empty" class="empty" style="display:none;">対戦記録がありません。</div>
+    </div>
+  </section>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  const KEY_MATCHES = 'vg-matches';
+  const KEY_DECKS = 'vg-decks';
+  const KEY_FORMATS = 'vg-formats';
+
+  let matches = [];
+  let decks = [];
+  let formats = ['プレミアムスタンダード','スタンダード'];
+  const DEFAULT_FORMAT = 'スタンダード';
+
+  let curResult = null, curOrder = null;
+  let statsDeck = 'all', statsPeriod = 'all', statsFormat = 'all';
+  let formatFilterInitialized = false;
+
+  const $ = (id) => document.getElementById(id);
+
+  // Standalone build: uses the browser's localStorage (data stays on this
+  // device, in this browser, only — nothing is sent anywhere).
+  async function loadAll(){
+    matches = safeGet(KEY_MATCHES, []);
+    decks = safeGet(KEY_DECKS, []);
+    const f = safeGet(KEY_FORMATS, null);
+    if(f && f.length) formats = f;
+  }
+  function safeGet(key, fallback){
+    try{
+      const raw = window.localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : fallback;
+    }catch(e){ return fallback; }
+  }
+  async function saveMatches(){ try{ window.localStorage.setItem(KEY_MATCHES, JSON.stringify(matches)); }catch(e){ showToast('保存に失敗しました'); } }
+  async function saveDecks(){ try{ window.localStorage.setItem(KEY_DECKS, JSON.stringify(decks)); }catch(e){} }
+  async function saveFormats(){ try{ window.localStorage.setItem(KEY_FORMATS, JSON.stringify(formats)); }catch(e){} }
+
+  function showToast(msg){
+    const t = $('toast'); t.textContent = msg; t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'), 1800);
+  }
+  function normalize(s){ return s.trim().toLowerCase(); }
+
+  // ---- combo select population ----
+  function kanaCompare(a,b){ return a.localeCompare(b, 'ja'); }
+
+  function orderedDeckNames(role){
+    // role: 'own' (使用デッキ) or 'opp' (対戦相手デッキ) or 'plain' (no recency/usage weighting)
+    const base = decks.slice().sort(kanaCompare);
+    if(role === 'plain' || !matches.length) return base;
+
+    const ordered = [];
+    const recent = matches[matches.length - 1][role === 'own' ? 'deck' : 'opp'];
+    if(recent && decks.includes(recent)) ordered.push(recent);
+
+    if(role === 'own'){
+      const counts = {};
+      matches.forEach(m => { counts[m.deck] = (counts[m.deck] || 0) + 1; });
+      const ranked = Object.keys(counts)
+        .filter(name => decks.includes(name))
+        .sort((a,b) => (counts[b]-counts[a]) || kanaCompare(a,b));
+      const top2 = ranked.slice(0, 2).sort(kanaCompare);
+      top2.forEach(name => { if(!ordered.includes(name)) ordered.push(name); });
+    }
+
+    base.forEach(name => { if(!ordered.includes(name)) ordered.push(name); });
+    return ordered;
+  }
+
+  function fillSelect(sel, list, withAddOption){
+    sel.innerHTML = '';
+    list.forEach(name => {
+      const o = document.createElement('option');
+      o.value = name; o.textContent = name;
+      sel.appendChild(o);
+    });
+    if(withAddOption){
+      const o = document.createElement('option');
+      o.value = '__add__'; o.textContent = '+ 新しいデッキを追加...';
+      sel.appendChild(o);
+    }
+  }
+  function fillFormatSelect(sel){
+    sel.innerHTML = '';
+    formats.forEach(name => {
+      const o = document.createElement('option'); o.value = name; o.textContent = name; sel.appendChild(o);
+    });
+    const o = document.createElement('option'); o.value = '__add__'; o.textContent = '+ 新しいフォーマットを追加...'; sel.appendChild(o);
+    if(formats.includes(DEFAULT_FORMAT)) sel.value = DEFAULT_FORMAT;
+  }
+
+  function syncComboRow(selectId, rowId){
+    const sel = $(selectId), row = $(rowId);
+    row.style.display = (sel.value === '__add__') ? 'flex' : 'none';
+  }
+
+  function refreshDeckSelects(){
+    fillSelect($('f-deck'), orderedDeckNames('own'), true);
+    fillSelect($('f-opp'), orderedDeckNames('opp'), true);
+    fillFormatSelect($('f-format'));
+    syncComboRow('f-deck','add-deck-row');
+    syncComboRow('f-opp','add-opp-row');
+    syncComboRow('f-format','add-format-row');
+    // history filter
+    const hf = $('hist-deck-filter');
+    const prevHist = hf.value;
+    hf.innerHTML = '<option value="all">すべてのデッキ</option>';
+    orderedDeckNames('plain').forEach(d=>{ const o=document.createElement('option'); o.value=d; o.textContent=d; hf.appendChild(o); });
+    if([...hf.options].some(o=>o.value===prevHist)) hf.value = prevHist;
+    // format filter for stats
+    const ff = $('format-filter');
+    const prevFmt = ff.value;
+    ff.innerHTML = '<option value="all">すべてのフォーマット</option>';
+    formats.forEach(f=>{ const o=document.createElement('option'); o.value=f; o.textContent=f; ff.appendChild(o); });
+    if(!formatFilterInitialized && formats.includes(DEFAULT_FORMAT)){
+      ff.value = DEFAULT_FORMAT;
+      statsFormat = DEFAULT_FORMAT;
+      formatFilterInitialized = true;
+    } else if([...ff.options].some(o=>o.value===prevFmt)){
+      ff.value = prevFmt;
+    }
+  }
+
+  function addDeckIfNew(name){
+    name = name.trim();
+    if(!name) return null;
+    const existing = decks.find(d => normalize(d) === normalize(name));
+    if(existing) return existing;
+    decks.push(name);
+    saveDecks();
+    return name;
+  }
+  function addFormatIfNew(name){
+    name = name.trim();
+    if(!name) return null;
+    const existing = formats.find(f => normalize(f) === normalize(name));
+    if(existing) return existing;
+    formats.push(name);
+    saveFormats();
+    return name;
+  }
+
+  // deck select "add new" wiring
+  function wireCombo(selectId, rowId, inputId, confirmId, isFormat){
+    const sel = $(selectId), row = $(rowId), input = $(inputId), btn = $(confirmId);
+    sel.addEventListener('change', ()=>{
+      syncComboRow(selectId, rowId);
+      if(sel.value === '__add__') input.focus();
+    });
+    // in case the list starts out empty, the only option is "add new" and
+    // no change event will ever fire — so show the input right away.
+    syncComboRow(selectId, rowId);
+    btn.addEventListener('click', ()=>{
+      const val = isFormat ? addFormatIfNew(input.value) : addDeckIfNew(input.value);
+      if(!val){ showToast('名前を入力してください'); return; }
+      input.value='';
+      row.style.display='none';
+      refreshDeckSelects();
+      sel.value = val;
+      renderDeckChips();
+      renderDeckManage();
+    });
+  }
+  wireCombo('f-deck','add-deck-row','add-deck-input','add-deck-confirm', false);
+  wireCombo('f-opp','add-opp-row','add-opp-input','add-opp-confirm', false);
+  wireCombo('f-format','add-format-row','add-format-input','add-format-confirm', true);
+
+  // result / order button groups
+  document.querySelectorAll('[data-result]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      curResult = btn.dataset.result;
+      document.querySelectorAll('[data-result]').forEach(b=>b.classList.toggle('active', b===btn));
+    });
+  });
+  document.querySelectorAll('[data-order]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      curOrder = btn.dataset.order;
+      document.querySelectorAll('[data-order]').forEach(b=>b.classList.toggle('active', b===btn));
+    });
+  });
+
+  // tabs
+  document.querySelectorAll('nav.tabs button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.toggle('active', b===btn));
+      document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+      $('tab-'+btn.dataset.tab).classList.add('active');
+      if(btn.dataset.tab==='stats') renderStats();
+      if(btn.dataset.tab==='history') renderHistory();
+    });
+  });
+
+  // date default today
+  function todayStr(){
+    const d = new Date();
+    return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  }
+  $('f-date').value = todayStr();
+
+  // submit
+  $('submit-btn').addEventListener('click', async ()=>{
+    let deckVal = $('f-deck').value;
+    let oppVal = $('f-opp').value;
+    let fmtVal = $('f-format').value;
+    if(deckVal==='__add__' || oppVal==='__add__' || fmtVal==='__add__'){
+      showToast('新しいデッキ/フォーマット名を確定してください'); return;
+    }
+    if(!deckVal || !oppVal){ showToast('デッキを選択してください'); return; }
+    if(!curResult){ showToast('勝敗を選択してください'); return; }
+    if(!curOrder){ showToast('先攻/後攻を選択してください'); return; }
+
+    const rec = {
+      id: Date.now()+'-'+Math.random().toString(36).slice(2,7),
+      date: $('f-date').value || todayStr(),
+      deck: deckVal,
+      opp: oppVal,
+      format: fmtVal || formats[0] || '',
+      result: curResult,
+      reason: $('f-reason').value,
+      order: curOrder,
+      turns: parseInt($('f-turns').value) || null,
+      notes: $('f-notes').value.trim()
+    };
+    matches.push(rec);
+    await saveMatches();
+    showToast('記録しました');
+
+    // reset partial
+    curResult = null; curOrder = null;
+    document.querySelectorAll('[data-result],[data-order]').forEach(b=>b.classList.remove('active'));
+    $('f-turns').value=''; $('f-notes').value='';
+    refreshDeckSelects();
+    $('f-deck').value = deckVal;
+    $('f-opp').value = oppVal;
+    renderDeckChips();
+  });
+
+  // ---- deck chips for stats ----
+  function renderDeckChips(){
+    const used = [...new Set(matches.map(m=>m.deck))];
+    const row = $('deck-chips');
+    row.innerHTML = '';
+    const allChip = document.createElement('button');
+    allChip.className = 'chip' + (statsDeck==='all' ? ' active':'');
+    allChip.textContent = 'すべてのデッキ';
+    allChip.onclick = ()=>{ statsDeck='all'; renderDeckChips(); renderStats(); };
+    row.appendChild(allChip);
+    used.forEach(d=>{
+      const c = document.createElement('button');
+      c.className = 'chip' + (statsDeck===d ? ' active':'');
+      c.textContent = d;
+      c.onclick = ()=>{ statsDeck=d; renderDeckChips(); renderStats(); };
+      row.appendChild(c);
+    });
+  }
+
+  // ---- deck management (delete) ----
+  let deckPendingDelete = null;
+  function renderDeckManage(){
+    const wrap = $('deck-manage-list');
+    wrap.innerHTML = '';
+    const sortedDecks = decks.slice().sort(kanaCompare);
+    if(!sortedDecks.length){
+      wrap.innerHTML = '<div class="dm-empty">登録済みのデッキはまだありません。</div>';
+      return;
+    }
+    sortedDecks.forEach(name=>{
+      const row = document.createElement('div'); row.className = 'dm-row';
+      if(deckPendingDelete === name){
+        row.innerHTML = `<div class="dm-confirm">
+          <span>「${escapeHtml(name)}」を削除しますか?</span>
+          <button type="button" class="yes-btn">削除する</button>
+          <button type="button" class="no-btn">キャンセル</button>
+        </div>`;
+        row.querySelector('.yes-btn').onclick = async ()=>{
+          decks = decks.filter(d=>d!==name);
+          await saveDecks();
+          deckPendingDelete = null;
+          refreshDeckSelects();
+          renderDeckManage();
+          showToast('デッキを削除しました');
+        };
+        row.querySelector('.no-btn').onclick = ()=>{ deckPendingDelete = null; renderDeckManage(); };
+      } else {
+        row.innerHTML = `<div class="dm-name">${escapeHtml(name)}</div><button type="button" class="dm-del" title="削除">✕</button>`;
+        row.querySelector('.dm-del').onclick = ()=>{ deckPendingDelete = name; renderDeckManage(); };
+      }
+      wrap.appendChild(row);
+    });
+  }
+
+  $('period-seg').addEventListener('click', (e)=>{
+    if(e.target.tagName!=='BUTTON') return;
+    statsPeriod = e.target.dataset.period;
+    [...$('period-seg').children].forEach(b=>b.classList.toggle('active', b===e.target));
+    renderStats();
+  });
+  $('format-filter').addEventListener('change', (e)=>{ statsFormat = e.target.value; renderStats(); });
+  $('hist-deck-filter').addEventListener('change', renderHistory);
+
+  function filteredMatches(){
+    let list = matches;
+    if(statsDeck !== 'all') list = list.filter(m=>m.deck===statsDeck);
+    if(statsFormat !== 'all') list = list.filter(m=>m.format===statsFormat);
+    if(statsPeriod !== 'all'){
+      const now = new Date();
+      const cutoff = new Date(now);
+      if(statsPeriod==='month') cutoff.setMonth(cutoff.getMonth()-1);
+      if(statsPeriod==='week') cutoff.setDate(cutoff.getDate()-7);
+      list = list.filter(m => new Date(m.date) >= cutoff);
+    }
+    return list.slice().sort((a,b)=> a.date.localeCompare(b.date));
+  }
+
+  function rate(win, total){ return total ? Math.round(win/total*100)+'%' : '-'; }
+
+  function renderStats(){
+    const list = filteredMatches();
+    $('stats-empty').style.display = list.length ? 'none' : 'block';
+    $('stats-body').style.display = list.length ? 'block' : 'none';
+    if(!list.length) return;
+
+    const wins = list.filter(m=>m.result==='W').length;
+    const total = list.length;
+    const firstList = list.filter(m=>m.order==='先攻');
+    const secondList = list.filter(m=>m.order==='後攻');
+    const firstWins = firstList.filter(m=>m.result==='W').length;
+    const secondWins = secondList.filter(m=>m.result==='W').length;
+
+    $('st-count').textContent = total;
+    $('st-rate').textContent = rate(wins, total);
+    $('st-first').textContent = rate(firstWins, firstList.length);
+    $('st-second').textContent = rate(secondWins, secondList.length);
+
+    // cross tab: opponent x order
+    const opps = [...new Set(list.map(m=>m.opp))];
+    const tbody = document.querySelector('#xtab-table tbody');
+    tbody.innerHTML = '';
+    opps.forEach(opp=>{
+      const fo = list.filter(m=>m.opp===opp && m.order==='先攻');
+      const so = list.filter(m=>m.opp===opp && m.order==='後攻');
+      const fw = fo.filter(m=>m.result==='W').length;
+      const sw = so.filter(m=>m.result==='W').length;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td class="name">${escapeHtml(opp)}</td>
+        <td class="rate ${cls(fw,fo.length)}">${rate(fw,fo.length)} <span class="n-small">(${fo.length})</span></td>
+        <td class="rate ${cls(sw,so.length)}">${rate(sw,so.length)} <span class="n-small">(${so.length})</span></td>`;
+      tbody.appendChild(tr);
+    });
+
+    // turn distribution
+    const buckets = {}; // turn -> count, cap at 10+
+    list.forEach(m=>{
+      if(!m.turns) return;
+      const b = m.turns >= 10 ? '10+' : String(m.turns);
+      buckets[b] = (buckets[b]||0)+1;
+    });
+    const order = ['1','2','3','4','5','6','7','8','9','10+'];
+    const maxCnt = Math.max(1, ...Object.values(buckets));
+    const chart = $('turn-chart');
+    chart.innerHTML = '';
+    order.forEach(b=>{
+      const cnt = buckets[b] || 0;
+      const col = document.createElement('div'); col.className='turn-bar-col';
+      const bar = document.createElement('div'); bar.className='turn-bar';
+      bar.style.height = (cnt ? Math.max(4, cnt/maxCnt*80) : 1) + 'px';
+      col.innerHTML = `<div class="cnt">${cnt||''}</div>`;
+      col.appendChild(bar);
+      const lbl = document.createElement('div'); lbl.className='lbl'; lbl.textContent = b;
+      col.appendChild(lbl);
+      chart.appendChild(col);
+    });
+
+    // streak
+    const streak = $('streak-row');
+    streak.innerHTML = '';
+    list.slice(-40).forEach(m=>{
+      const d = document.createElement('div');
+      d.className = 'streak-dot ' + m.result;
+      d.title = m.date+' vs '+m.opp+' '+({W:'勝ち',L:'負け',D:'引き分け'}[m.result]);
+      streak.appendChild(d);
+    });
+
+    // opponent breakdown
+    const oppList = $('opp-list');
+    oppList.innerHTML = '';
+    const sorted = opps.map(opp=>{
+      const ms = list.filter(m=>m.opp===opp);
+      const w = ms.filter(m=>m.result==='W').length;
+      return {opp, w, total: ms.length, pct: ms.length ? w/ms.length : 0};
+    }).sort((a,b)=> b.total - a.total);
+    sorted.forEach(o=>{
+      const row = document.createElement('div'); row.className='opp-row';
+      const small = o.total < 5 ? ' <span class="n-small">(参考: '+o.total+'戦)</span>' : ' <span class="n-small">('+o.total+'戦)</span>';
+      row.innerHTML = `<div class="oname">${escapeHtml(o.opp)}</div>
+        <div class="obar"><div class="ofill" style="width:${Math.round(o.pct*100)}%"></div></div>
+        <div class="orate">${Math.round(o.pct*100)}%${small}</div>`;
+      oppList.appendChild(row);
+    });
+  }
+  function cls(w,t){ if(!t) return ''; const p=w/t; return p>=0.55?'high':(p<=0.45?'low':''); }
+  function escapeHtml(s){ return (s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+  // CSV export
+  $('csv-btn').addEventListener('click', ()=>{
+    const rows = [['日付','使用デッキ','対戦相手デッキ','フォーマット','勝敗','理由','先攻後攻','ターン数','メモ']];
+    matches.slice().sort((a,b)=>a.date.localeCompare(b.date)).forEach(m=>{
+      rows.push([m.date, m.deck, m.opp, m.format, {W:'勝ち',L:'負け',D:'引き分け'}[m.result], m.reason, m.order, m.turns||'', (m.notes||'').replace(/\n/g,' ')]);
+    });
+    const csv = rows.map(r => r.map(v => '"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n');
+    const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8;'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'vanguard_matches.csv';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  // ---- history ----
+  let histPendingDeleteId = null;
+  function renderHistory(){
+    const filterDeck = $('hist-deck-filter').value;
+    let list = matches.slice().sort((a,b)=> b.date.localeCompare(a.date));
+    if(filterDeck !== 'all') list = list.filter(m=>m.deck===filterDeck);
+    const wrap = $('hist-list');
+    wrap.innerHTML = '';
+    $('hist-empty').style.display = list.length ? 'none' : 'block';
+    list.forEach(m=>{
+      const row = document.createElement('div'); row.className='hist-row';
+      row.innerHTML = `<div class="res-badge ${m.result}">${({W:'WIN',L:'LOSE',D:'DRAW'}[m.result])}</div>
+        <div class="match-title">${escapeHtml(m.deck)} <span class="vs">vs ${escapeHtml(m.opp)}</span></div>
+        <div class="meta">${m.date}<br>${m.order} ${m.turns?('・'+m.turns+'T'):''}</div>`;
+      const detail = document.createElement('div'); detail.className='hist-detail';
+      const metaLine = `フォーマット: ${escapeHtml(m.format||'-')} ／ 理由: ${escapeHtml(m.reason||'-')}` + (m.notes ? '<br>'+escapeHtml(m.notes) : '');
+      if(histPendingDeleteId === m.id){
+        detail.classList.add('open');
+        detail.innerHTML = metaLine + `<div class="hist-del-confirm">
+          <span>この記録を削除しますか?</span>
+          <button type="button" class="yes-btn">削除する</button>
+          <button type="button" class="no-btn">キャンセル</button>
+        </div>`;
+        detail.querySelector('.yes-btn').onclick = async (e)=>{
+          e.stopPropagation();
+          matches = matches.filter(x=>x.id!==m.id);
+          await saveMatches();
+          histPendingDeleteId = null;
+          renderHistory();
+          renderDeckChips();
+          refreshDeckSelects();
+          showToast('記録を削除しました');
+        };
+        detail.querySelector('.no-btn').onclick = (e)=>{ e.stopPropagation(); histPendingDeleteId = null; renderHistory(); };
+      } else {
+        detail.innerHTML = metaLine + `<button type="button" class="hist-del-btn">この記録を削除</button>`;
+        detail.querySelector('.hist-del-btn').onclick = (e)=>{
+          e.stopPropagation();
+          histPendingDeleteId = m.id;
+          renderHistory();
+        };
+      }
+      row.addEventListener('click', ()=> detail.classList.toggle('open'));
+      wrap.appendChild(row);
+      wrap.appendChild(detail);
+    });
+  }
+
+  // init
+  (async function init(){
+    await loadAll();
+    refreshDeckSelects();
+    renderDeckChips();
+    renderDeckManage();
+    renderHistory();
+  })();
+})();
+</script>
+</body>
+</html>
