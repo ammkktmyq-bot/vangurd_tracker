@@ -200,6 +200,20 @@
     padding:9px 14px;border-radius:7px;font-size:12px;cursor:pointer;
   }
   .csv-btn:hover{border-color:var(--gold-dim);color:var(--gold);}
+  .csv-actions{display:flex;gap:8px;flex-wrap:wrap;}
+  .csv-import-card{
+    margin-top:12px;background:var(--panel-raised);border:1px solid var(--line);border-radius:8px;
+    padding:12px;font-size:13px;
+  }
+  .csv-import-card p{margin:0 0 10px;color:var(--text);line-height:1.5;}
+  .csv-import-actions{display:flex;gap:8px;flex-wrap:wrap;}
+  .csv-import-actions button{
+    border:none;border-radius:6px;padding:7px 12px;font-size:12px;cursor:pointer;
+    font-family:'Rajdhani',sans-serif;font-weight:600;
+  }
+  .csv-import-actions .append-btn{background:var(--gold);color:#191b27;}
+  .csv-import-actions .replace-btn{background:var(--loss);color:#fff;}
+  .csv-import-actions .cancel-btn{background:var(--panel);color:var(--text-dim);border:1px solid var(--line);}
 
   /* history */
   .hist-row{
@@ -371,7 +385,12 @@
         <div class="opp-list" id="opp-list"></div>
       </div>
 
-      <button class="csv-btn" id="csv-btn">CSVでエクスポート</button>
+      <div class="csv-actions">
+        <button class="csv-btn" id="csv-btn">CSVでエクスポート</button>
+        <button class="csv-btn" id="csv-import-btn">CSVをインポート</button>
+        <input type="file" id="csv-file-input" accept=".csv,text/csv" style="display:none;">
+      </div>
+      <div id="csv-import-status"></div>
     </div>
   </section>
 
@@ -804,6 +823,124 @@
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
     URL.revokeObjectURL(url);
   });
+
+  // CSV import
+  const RESULT_JA_TO_CODE = {'勝ち':'W','負け':'L','引き分け':'D'};
+  const EXPECTED_HEADER = ['日付','使用デッキ','対戦相手デッキ','フォーマット','勝敗','理由','先攻後攻','ターン数','メモ'];
+
+  function parseCSV(text){
+    const rows = [];
+    let row = [], field = '', inQuotes = false;
+    for(let i=0;i<text.length;i++){
+      const c = text[i];
+      if(inQuotes){
+        if(c === '"'){
+          if(text[i+1] === '"'){ field += '"'; i++; }
+          else inQuotes = false;
+        } else field += c;
+      } else {
+        if(c === '"') inQuotes = true;
+        else if(c === ',') { row.push(field); field=''; }
+        else if(c === '\r') { /* skip, \n handles line end */ }
+        else if(c === '\n') { row.push(field); rows.push(row); row=[]; field=''; }
+        else field += c;
+      }
+    }
+    if(field.length || row.length){ row.push(field); rows.push(row); }
+    return rows.filter(r => !(r.length===1 && r[0]==='')); // drop trailing empty line
+  }
+
+  let pendingImport = null; // {records, source}
+
+  $('csv-import-btn').addEventListener('click', ()=> $('csv-file-input').click());
+
+  $('csv-file-input').addEventListener('change', (e)=>{
+    const file = e.target.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev)=>{
+      let text = ev.target.result;
+      if(text.charCodeAt(0) === 0xFEFF) text = text.slice(1); // strip BOM
+      const rows = parseCSV(text);
+      if(!rows.length){ showToast('CSVが空です'); resetImportInput(); return; }
+      const header = rows[0].map(h=>h.trim());
+      const headerOk = EXPECTED_HEADER.every((h,i) => header[i] === h);
+      if(!headerOk){
+        showToast('CSVの形式が正しくありません(このツールで出力した形式のみ対応)');
+        resetImportInput();
+        return;
+      }
+      const records = [];
+      for(let i=1;i<rows.length;i++){
+        const r = rows[i];
+        if(r.length < 9 || !r[0]) continue;
+        const resultCode = RESULT_JA_TO_CODE[r[4]];
+        if(!resultCode) continue; // skip malformed row
+        records.push({
+          id: Date.now()+'-'+Math.random().toString(36).slice(2,7)+'-'+i,
+          date: r[0],
+          deck: r[1],
+          opp: r[2],
+          format: r[3],
+          result: resultCode,
+          reason: r[5],
+          order: r[6],
+          turns: r[7] ? (parseInt(r[7]) || null) : null,
+          notes: r[8] || ''
+        });
+      }
+      if(!records.length){
+        showToast('読み込める記録が見つかりませんでした');
+        resetImportInput();
+        return;
+      }
+      pendingImport = records;
+      renderImportConfirm(records.length);
+    };
+    reader.onerror = ()=>{ showToast('ファイルの読み込みに失敗しました'); resetImportInput(); };
+    reader.readAsText(file, 'UTF-8');
+  });
+
+  function resetImportInput(){ $('csv-file-input').value = ''; }
+
+  function renderImportConfirm(count){
+    const wrap = $('csv-import-status');
+    wrap.innerHTML = `<div class="csv-import-card">
+      <p>${count}件のデータが見つかりました。既存の記録に追加しますか、それとも今のデータをすべて置き換えますか?</p>
+      <div class="csv-import-actions">
+        <button type="button" class="append-btn">追加する</button>
+        <button type="button" class="replace-btn">置き換える</button>
+        <button type="button" class="cancel-btn">キャンセル</button>
+      </div>
+    </div>`;
+    wrap.querySelector('.append-btn').onclick = ()=> applyImport('append');
+    wrap.querySelector('.replace-btn').onclick = ()=> applyImport('replace');
+    wrap.querySelector('.cancel-btn').onclick = ()=>{ pendingImport = null; wrap.innerHTML=''; resetImportInput(); };
+  }
+
+  async function applyImport(mode){
+    if(!pendingImport) return;
+    if(mode === 'replace') matches = pendingImport.slice();
+    else matches = matches.concat(pendingImport);
+    await saveMatches();
+
+    // register any new deck/format names so the pulldowns stay usable
+    const names = new Set();
+    const fmts = new Set();
+    pendingImport.forEach(m=>{ if(m.deck) names.add(m.deck); if(m.opp) names.add(m.opp); if(m.format) fmts.add(m.format); });
+    names.forEach(n => addDeckIfNew(n));
+    fmts.forEach(f => addFormatIfNew(f));
+
+    pendingImport = null;
+    $('csv-import-status').innerHTML = '';
+    resetImportInput();
+    refreshDeckSelects();
+    renderDeckChips();
+    renderDeckManage();
+    renderHistory();
+    renderStats();
+    showToast(mode === 'replace' ? 'データを置き換えました' : 'データを追加しました');
+  }
 
   // ---- history ----
   let histPendingDeleteId = null;
